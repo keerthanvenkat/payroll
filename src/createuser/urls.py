@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from .views import ContactView,BlogView
+from .views import ContactView,BlogView,Clientdetailsview
 
 
 urlpatterns = [
@@ -12,6 +12,6 @@ urlpatterns = [
     # url(r'^$','blog.views.myblog',name='myblog'),
     url(r'^ContactForm/',ContactView,name='contact'),
     url(r'^PostForm/',BlogView,name='blog'),
-    # url(r'^thankyou/',Thanks,name='thanks'),
+    url(r'^Clientdetails/',Clientdetailsview,name='clientdetails'),
 
 ]

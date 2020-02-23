@@ -33,3 +33,6 @@ def ContactView(request):
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')
+
+def Clientdetailsview(request):
+	return render(request,'services/client_details.html')
