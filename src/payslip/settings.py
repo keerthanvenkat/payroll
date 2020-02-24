@@ -121,7 +121,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+## location for common static files for all apps.
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "project_local"),   # this is the location for common static files.
 )
+
+## location for deployment purpose.
 STATIC_ROOT = os.path.join(BASE_DIR,"project_public")
+# print(STATIC_ROOT)
+# print(STATICFILES_DIRS)
+
+CRISPY_TEMPLATE_PACK = 'uni_form',

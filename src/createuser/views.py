@@ -36,3 +36,6 @@ def BlogView(request):
 
 def Clientdetailsview(request):
 	return render(request,'services/client_details.html')
+
+def employee_details(request):
+	return render(request,'services/employee_details.html')
