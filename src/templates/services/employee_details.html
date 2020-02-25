@@ -1,11 +1,144 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}{% endblock %}
 {% load static %} 
 {% block content %}
-
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/normalize.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/demo.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+<div class="container">
+    <div class="row" id="animationSandbox">
+        <div class="col-sm-12">
+            <div class="portlet">
+                <div class="portlet-heading bg-info">
+                    <h3 class="portlet-title">Employee Details</h3>
+                    <div class="portlet-widgets">
+                      
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="bg-primary1" class="panel-collapse collapse in">
+                    <div class="portlet-body" style="padding:50px">
+                        <div class="form-horizontal group-border-dashed">
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback">
+                                    <label class=" col-sm-4 control-label" style="padding-top: -3px">Clinet Name: <span class="mandatory">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control input-sm" id="countryval" value="" tabindex="1" placeholder="Enter Client Name">
+                                        <input type="hidden" id="country-id">
+                                        <div id="ac-country" class="ac-textbox default-display-none">
+                                          <ul style="width:85%;"></ul>
+                                        </div>
+                                        <i class="fa-1-5x form-control-feedback fa fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group has-feedback">
+                                    <label class="col-sm-4 control-label"style="padding-top: -3px">Employee Id: </label>
+                                    <div class="col-sm-6">
+                                        <input type="hidden" id="domainid">
+                                        <input type="text" class="form-control input-sm" id="domainval" value="" tabindex="6" placeholder="Enter employee Id">
+                                        <div id="ac-domain" class="ac-textbox default-display-none">
+                                          <ul style="width:85%;"></ul>
+                                        </div>
+                                        <i class="fa-1-5x form-control-feedback fa fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <center>
+                                    <div class="form-group m-b-0 m-t-5">
+                                        <button class="btn btn-primary waves-effect waves-light" type="submit" id="show-button" tabindex="11"> Show </button>
+                                        <button class="btn btn-info waves-effect waves-light" type="submit" id="export" tabindex="12"> Export </button>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="compliance_animation">
+              <div class="card-box details" style="display: none;">
+                <div class="grid-table-rpt">
+                  <div class="table-responsive">
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 text-center"><h4>Client Unit Details</h4></div>
+                            <div class="col-sm-6 text-center"><h6>Country: <span style="margin-left:10px; font-weight:bold;" class="countrynameval"></span></h6></div>
+                            <div class="col-sm-6 text-center"><h6>Business Group: <span style="margin-left:10px; font-weight:bold;" class="bgroupsval"> </span></h6></div>
+                            <div class="col-sm-6 text-center"><h6>Group: <span style="margin-left:10px; font-weight:bold;" class="groupval"> </span></h6></div>
+                            <div class="col-sm-6 text-center"><h6>Legal Entity: <span style="margin-left:10px; font-weight:bold;" class="lentityval"></span></h6></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <table id="datatable-responsive" class="table dt-responsive nowrap" cellspacing="0" width="100%">
+                          <thead>
+                            <tr align="left" class="tr-heading">
+                              <th width="01%">#</th>
+                                <th width="06%">Unit Code</th>
+                                <th width="10%">Unit Name</th>
+                                <th width="07%">Division</th>
+                                <th width="08%">Category</th>
+                                <th width="13%">Domain - Organization Type</th>
+                                <th width="12%">Address</th>
+                                <th width="07%">Created By</th>
+                                <th width="07%">Created On</th>
+                                <th width="07%">Status</th>
+                            </tr>
+                          </thead>
+                            <tbody class="tbody-clientdetails-list">
+                            </tbody>
+                        </table>
+                        <table class="pagination-view default-display-none">
+                          <tr>
+                            <td>
+                              <span class="compliance_count"> </span>
+                              <span class="divider-view"> | </span>
+                              <span class="items-per-page">
+                              Show
+                              <select id="items_per_page">
+                              </select>
+                              entries
+                              </span>
+                            </td>
+                            <td style="width:600px;"></td>
+                            <td style="text-align:right;padding-right:10px;">
+                              <ul id="pagination-rpt"></ul>
+                            </td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+</div>
+<div id="templates">
+<table width="100%" style="border:1px dotted #CCCCCC;">
+    <tr class="table-row" >
+      <td align="center" class="sno"></td>
+      <td class="unit-code"></td>
+      <td class="unit-name"></td>
+      <td class="division"></td>
+      <td class="category"></td>
+      <td class="domain"></td>
+      <td class="unit-address" style="word-break: break-word;"></td>
+      <td class="createdby"></td>
+      <td class="createdon"></td>
+      <td class="status"></td>
+    </tr>
+  </table>
+</div>
+<div id="no-record-templates" class="default-display-none">
+<table class="table-no-content">
+<tr align="left" class="table-row-no-content">
+<td  align="center" colspan="10" class="no_records" style="padding:40px; font-size:1.2em; font-weight:bold"></td>
+</tr>
+</table>
+</div>
 
 {% endblock %}
