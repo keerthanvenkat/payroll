@@ -18,6 +18,8 @@
     .fixed-header{
         top: 0;
         background-color: cadetblue;
+        padding: 0px;
+        
     }
     .fixed-footer{
         bottom: 0;
