@@ -39,3 +39,9 @@ def Clientdetailsview(request):
 
 def employee_details(request):
 	return render(request,'services/employee_details.html')
+
+def employee_details(request):
+	return render(request,'services/employee_details.html')
+
+def payslip_generate(request):
+	return render(request,'services/payslip_generate.html')

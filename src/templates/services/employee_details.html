@@ -6,60 +6,59 @@
 <link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/normalize.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/demo.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
-<div class="container">
+<div class="container table-body-new">
     <div class="row" id="animationSandbox">
         <div class="col-sm-12">
             <div class="portlet">
-                <div class="portlet-heading bg-info">
-                    <h3 class="portlet-title">Employee Details</h3>
-                    <div class="portlet-widgets">
-                      
-                    </div>
-                    <div class="clearfix"></div>
+              <div class="portlet-heading bg-info">
+                <h3 class="portlet-title">Employee Details</h3>
+                <div class="portlet-widgets">  
                 </div>
-                <div id="bg-primary1" class="panel-collapse collapse in">
-                    <div class="portlet-body" style="padding:50px">
-                        <div class="form-horizontal group-border-dashed">
-                            <div class="col-sm-6">
-                                <div class="form-group has-feedback">
-                                    <label class=" col-sm-4 control-label" style="padding-top: -3px">Clinet Name: <span class="mandatory">*</span></label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control input-sm" id="countryval" value="" tabindex="1" placeholder="Enter Client Name">
-                                        <input type="hidden" id="country-id">
-                                        <div id="ac-country" class="ac-textbox default-display-none">
-                                          <ul style="width:85%;"></ul>
-                                        </div>
-                                        <i class="fa-1-5x form-control-feedback fa fa-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group has-feedback">
-                                    <label class="col-sm-4 control-label"style="padding-top: -3px">Employee Id: </label>
-                                    <div class="col-sm-6">
-                                        <input type="hidden" id="domainid">
-                                        <input type="text" class="form-control input-sm" id="domainval" value="" tabindex="6" placeholder="Enter employee Id">
-                                        <div id="ac-domain" class="ac-textbox default-display-none">
-                                          <ul style="width:85%;"></ul>
-                                        </div>
-                                        <i class="fa-1-5x form-control-feedback fa fa-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center>
-                                    <div class="form-group m-b-0 m-t-5">
-                                        <button class="btn btn-primary waves-effect waves-light" type="submit" id="show-button" tabindex="11"> Show </button>
-                                        <button class="btn btn-info waves-effect waves-light" type="submit" id="export" tabindex="12"> Export </button>
-                                    </div>
-                                </center>
-                            </div>
-                            <div class="clear"></div>
+                <div class="clearfix"></div>
+              </div>
+              <div id="bg-primary1" class="panel-collapse collapse in">
+                <div class="portlet-body" style="padding:50px">
+                  <div class="form-horizontal group-border-dashed">
+                    <div class="col-sm-6">
+                      <div class="form-group has-feedback">
+                        <label class=" col-sm-4 control-label" style="padding-top: -3px">Clinet Name: <span class="required">*</span></label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control input-sm" id="countryval" value="" tabindex="1" placeholder="Enter Client Name">
+                          <input type="hidden" id="country-id">
+                          <div id="ac-country" class="ac-textbox default-display-none">
+                            <ul style="width:85%;"></ul>
+                          </div>
+                          <i class="fa-1-5x form-control-feedback fa fa-search"></i>
                         </div>
+                      </div>
                     </div>
+                    <div class="col-sm-6">
+                      <div class="form-group has-feedback">
+                        <label class="col-sm-4 control-label"style="padding-top: -3px">Employee Id: </label>
+                        <div class="col-sm-6">
+                          <input type="hidden" id="domainid">
+                          <input type="text" class="form-control input-sm" id="domainval" value="" tabindex="6" placeholder="Enter employee Id">
+                          <div id="ac-domain" class="ac-textbox default-display-none">
+                            <ul style="width:85%;"></ul>
+                          </div>
+                          <i class="fa-1-5x form-control-feedback fa fa-search"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <center>
+                        <div class="form-group m-b-0 m-t-5">
+                          <button class="btn btn-primary waves-effect waves-light" type="submit" id="show-button" tabindex="11"> Show </button>
+                          <button class="btn btn-info waves-effect waves-light" type="submit" id="export" tabindex="12"> Export </button>
+                        </div>
+                      </center>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
                 </div>
+              </div>
             </div>
             <div id="compliance_animation">
               <div class="card-box details" style="display: none;">

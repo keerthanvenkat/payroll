@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}{% endblock %}
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/normalize.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'StickyTableHeaders/css/demo.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}" />
+
+<div class="form container-fluid">
+	<div class="form-heading">Provide Information</div>
+	<form role='form' action="" method="post" class="uniForm table-body-new" align="center">
+		<label for="field1"><span>Client Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+		<label for="field2"><span>Eployee Id</span><input type="text" class="input-field" name="field2" value="" /></label>
+		{% csrf_token %}
+		{{crispy}}
+		<div></div><label><span> </span><input type="submit" value="Export" align="center" /></label></div>
+	</form>
+</div>
+
+{% endblock %}

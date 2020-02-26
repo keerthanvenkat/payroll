@@ -20,7 +20,7 @@
   border-radius: 3px 3px 0px 0px;
   -moz-border-radius: 3px 3px 0px 0px;
   background-clip: padding-box;
-  margin: -1px;
+  margin: 0px;
   color: #ffffff;
   /*padding: 12px 20px;*/
   padding: 4px 15px;
@@ -364,4 +364,9 @@ div.DTS tbody tr.even {
 }
 .table-list tr td ul li.active:hover {
   background: #2EAFDB !important;color: #fff;
+}
+
+.table-body-new {border: 2px solid #1C6EA4;
+border-radius: 40px 40px 40px 40px;
+padding: inherit;
 }
