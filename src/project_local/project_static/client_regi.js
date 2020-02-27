@@ -1,4 +1,4 @@
-function getUserInfo() {
+function getuserdata() {
     var info = dodecrypt(window.sessionStorage.userInfo);
     if (typeof info === 'undefined') {
         user = null;
@@ -8,17 +8,17 @@ function getUserInfo() {
     return user;
 }
 
-function getSessionToken() {
-    var info = getUserInfo();
+function getsession() {
+    var info = getuserdata();
     if (info !== null)
         return info.session_token;
     else
         return null;
 }
 
-function apiRequest(callback) {
+function apirequest(callback) {
     url = '/ContactForm';
-    var sessionToken = getSessionToken();
+    var sessionToken = getsession();
     var request = [
         {
             'd_name': dName,
