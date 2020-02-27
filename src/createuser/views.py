@@ -29,7 +29,7 @@ def ContactView(request):
 		else:
 			context = {'form':contact_form}
 	# GET 
-	return render(request,'create_user/user_creation_form.html',context)
+	return render(request,'create_user/client_regi.html',context)
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')
