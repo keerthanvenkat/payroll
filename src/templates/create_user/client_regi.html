@@ -9,15 +9,15 @@
 <div class="form container-fluid">
 	<div class="form-heading">Provide your client information</div>
 	<form role='form' action="" method="post" class="uniForm table-body-new" align="center">
-		<label for="field1"><span>Client Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-		<label id="field2"><span>Contact Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
-		<label><span>Telephone No</span><input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
-		<label for="field4"><span>Regarding</span><select name="field4" class="select-field">
+		<label for="field1"><span>Client Name: <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+		<label id="field2"><span>Contact Email: <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+		<label><span>Telephone No:</span><input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
+		<label for="field4"><span>Regarding:</span><select name="field4" class="select-field">
 			<option value="General Question">General</option>
 			<option value="Advertise">Advertisement</option>
 			<option value="Partnership">Partnership</option>
 		</select></label>
-		<label for="field5"><span>About Client Information <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+		<label for="field5"><span>About Client Information: <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
 		{% csrf_token %}
 		{{crispy}}
 		<label><span> </span><input class="btn btn-primary" type="submit" value="Submit" /></label>
