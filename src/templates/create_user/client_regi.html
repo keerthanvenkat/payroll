@@ -5,11 +5,13 @@
 {% load static %} 
 {% block content %} 
 <link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
+<!-- <script type="text/javascript" src="/project_stattic/client_regi.js"></script> -->
+<script src="{% static 'project_static/client_regi.js' %}"></script>
 <div class="form container-fluid">
 	<div class="form-heading">Provide your client information</div>
 	<form role='form' action="" method="post" class="uniForm table-body-new" align="center">
 		<label for="field1"><span>Client Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-		<label for="field2"><span>Contact Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+		<label id="field2"><span>Contact Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
 		<label><span>Telephone No</span><input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
 		<label for="field4"><span>Regarding</span><select name="field4" class="select-field">
 			<option value="General Question">General</option>
@@ -19,7 +21,8 @@
 		<label for="field5"><span>About Client Information <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
 		{% csrf_token %}
 		{{crispy}}
-		<label><span> </span><input type="submit" value="Submit" /></label>
+		<label><span> </span><input class="btn btn-primary" type="submit" value="Submit" /></label>
 	</form>
 </div>
+
 {% endblock %}
