@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 # from .models import Post
 from .forms import ContactForm
+import pdb
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def ContactView(request):
 	if request.method == 'POST':
 		contact_form = ContactForm(request.POST)
 	# POST and VALID data.
+		pdb.set_trace()
 		if contact_form.is_valid():
 			contact_name = contact_form.cleaned_data['contact_name']
 			contact_email = contact_form.cleaned_data['contact_email']
@@ -29,6 +31,7 @@ def ContactView(request):
 		else:
 			context = {'form':contact_form}
 	# GET 
+	# pdb.set_trace()
 	return render(request,'create_user/client_regi.html',context)
 
 def BlogView(request):

@@ -1,5 +1,5 @@
 function getuserdata() {
-    var info = dodecrypt(window.sessionStorage.userInfo);
+    var info = window.sessionStorage.userInfo;
     if (typeof info === 'undefined') {
         user = null;
     } else {
@@ -31,7 +31,7 @@ function apiRequest(request,callback) {
         type:"POST",
         contentType: 'application/json',
         url: url,
-        data=toJSON(actula_data)
+        data:toJSON(actula_data),
         success: function( data ) 
         {
             data = parseJSON(data)
@@ -41,22 +41,29 @@ function apiRequest(request,callback) {
                     callback(status, null);
             else
                 callback(status, response);
-        }
+        },
         error: function(jqXHR, textStatus, errorThrown) {
-            errordata = dodecrypt(rdata);
+            errordata = rdata;
             callback(errordata, errorThrown);
         }
      })
 }
 
-$('.btn-primary').click(function() {
+
+$(document).ready(function() {
+    $('.btn-primary').click(function() {
     var client_name = $('.input-field')[0].value;
+    console.log(client_name)
     var email = $('.input-field')[0].value;
-    var ph_no = $('.tel-number-field')[0].value +
-     $('.tel-number-field')[1].value + $('.tel-number-field')[2].value
+    var ph_no = $('.tel-number-field')[0].value + $('.tel-number-field')[1].value + $('.tel-number-field')[2].value
     var regards = $('.select-field').val()
     var client_info = $('.textarea-field').val()
-    post_data = {'client_name':client_name,'email':email,'ph_no':ph_no,
+    var post_data = {'client_name':client_name,'email':email,'ph_no':ph_no,
                  'regards':regards,'client_info':client_info}
+    console.log(email)
+    console.log(ph_no)
+    console.log(regards)
+    console.log(post_data)
     apiRequest(post_data,callback)
+    });
 });
