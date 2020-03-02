@@ -68,17 +68,12 @@ function getSessionToken() {
 $(document).ready(function() {
     $('.btn-primary').click(function() {
     var client_name = $('.input-field')[0].value;
-    console.log(client_name)
     var email = $('.input-field')[0].value;
     var ph_no = $('.tel-number-field')[0].value + $('.tel-number-field')[1].value + $('.tel-number-field')[2].value
     var regards = $('.select-field').val()
     var client_info = $('.textarea-field').val()
     var post_data = {'client_name':client_name,'email':email,'ph_no':ph_no,
                  'regards':regards,'client_info':client_info}
-    console.log(email)
-    console.log(ph_no)
-    console.log(regards)
-    console.log(post_data)
     // apiRequest(post_data,callback)
     url = '/ContactForm';
     var sessionToken = getSessionToken();
