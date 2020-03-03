@@ -3,36 +3,25 @@ from django.http import HttpResponse,HttpResponseRedirect
 # from .models import Post
 from .forms import ContactForm
 import pdb
+from payslip.database_common import *
 
 # Create your views here.
 
 
 
-def ContactView(request):
+def ContactView(self,request):
 
-	# GET
-	contact_form = ContactForm  # class not a instance.
-	context = {'form':contact_form}
-	
 	# POST
 	if request.method == 'POST':
-		contact_form = ContactForm(request.POST)
-	# POST and VALID data.
-		pdb.set_trace()
-		if contact_form.is_valid():
-			contact_name = contact_form.cleaned_data['contact_name']
-			contact_email = contact_form.cleaned_data['contact_email']
-			content = contact_form.cleaned_data['content']
-			subject = "A new contact or lead - {}".format(contact_name)
-			# email = EmailMessage(subject,contact_name + '\n' + contact_email + '\n' + content , to=['tuxfux.hlp@gmail.com'])
-			# email.send()
-			# return HttpResponseRedirect('/blog/thankyou/')
-	# POST and NOT VALID DATA.
-		else:
-			context = {'form':contact_form}
-	# GET 
-	# pdb.set_trace()
-	return render(request,'create_user/client_regi.html',context)
+		QUERY = "INSERT INTO man_power(ph_no,emial)" \
+				"VALUES (%s, %s, %s)"
+		flag = execute(self,QUERY,param=None)
+		if flag:
+			context =  "success"
+			return render(request,'create_user/client_regi.html',context)
+
+	else:
+		return render(request,'create_user/client_regi.html')
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')
