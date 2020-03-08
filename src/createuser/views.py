@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from .forms import ContactForm
 from .html import html_content
 import pdb
-import mimetypes
+
 
 # Create your views here.
 
@@ -22,10 +22,6 @@ def download_file(request):
 
 def ContactView(request):
 
-	# GET
-	contact_form = ContactForm  # class not a instance.
-	context = {'form':contact_form}
-	
 	# POST
 	if request.method == 'POST':
 		contact_form = ContactForm(request.POST)
@@ -37,7 +33,8 @@ def ContactView(request):
 		regards = request.POST.get('field4')
 		info = request.POST.get('field5')
 		
-	return render(request,'create_user/client_regi.html',context)
+	return render(request,'create_user/client_regi.html')
+
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')

@@ -1,4 +1,4 @@
-database = "man_power"
-user = "keerthan"
-password = "KEERthanS66"
+database = man_power
+user = keerthan
+password = KEERthanS66
 default-character-set = utf8
