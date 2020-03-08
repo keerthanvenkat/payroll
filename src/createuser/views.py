@@ -1,12 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
+from django.http import JsonResponse
 # from .models import Post
 from .forms import ContactForm
+from .html import html_content
 import pdb
+import mimetypes
 
 # Create your views here.
 
+def download_file(request):
+    # fill these variables with real values
+    fl_path = '/file/path'
+    filename = 'downloaded_file_name.extension'
 
+    fl = open(fl_path, 'r')
+    mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
 def ContactView(request):
 
@@ -19,19 +31,12 @@ def ContactView(request):
 		contact_form = ContactForm(request.POST)
 	# POST and VALID data.
 		pdb.set_trace()
-		if contact_form.is_valid():
-			contact_name = contact_form.cleaned_data['contact_name']
-			contact_email = contact_form.cleaned_data['contact_email']
-			content = contact_form.cleaned_data['content']
-			subject = "A new contact or lead - {}".format(contact_name)
-			# email = EmailMessage(subject,contact_name + '\n' + contact_email + '\n' + content , to=['tuxfux.hlp@gmail.com'])
-			# email.send()
-			# return HttpResponseRedirect('/blog/thankyou/')
-	# POST and NOT VALID DATA.
-		else:
-			context = {'form':contact_form}
-	# GET 
-	# pdb.set_trace()
+		client = request.POST.get('field1')
+		email = request.POST.get('field2')
+		ph_no = request.POST.get('tel_no_1') + request.POST.get('tel_no_2')+request.POST.get('tel_no_3')
+		regards = request.POST.get('field4')
+		info = request.POST.get('field5')
+		
 	return render(request,'create_user/client_regi.html',context)
 
 def BlogView(request):
@@ -47,4 +52,15 @@ def employee_details(request):
 	return render(request,'services/employee_details.html')
 
 def payslip_generate(request):
+	if request.method == 'POST': 
+		client = request.POST.get('field1')
+		employee_id = request.POST.get('field2')
+		
 	return render(request,'services/payslip_generate.html')
+
+def payslip_generate_get(request):
+	if request.method == 'POST': 
+		client = request.POST.get('field1')
+		employee_id = request.POST.get('employee_id')
+		print(employee_id)
+	return JsonResponse({"key": html_content,"employee_id":employee_id})
