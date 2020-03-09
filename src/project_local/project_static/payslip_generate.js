@@ -1,5 +1,4 @@
 $(document).on('submit', '#post-form',function(e){
-	  var me = $(this);
     e.preventDefault();
     $.ajax({
         type:'POST',

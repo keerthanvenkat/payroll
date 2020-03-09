@@ -9,33 +9,15 @@ from django.views.generic import View
 from .utils import *
 
 # Create your views here.
+  
 
-def download_file(request):
-    # fill these variables with real values
-    fl_path = '/file/path'
-    filename = 'downloaded_file_name.extension'
-
-    fl = open(fl_path, 'r')
-    mime_type, _ = mimetypes.guess_type(fl_path)
-    response = HttpResponse(fl, content_type=mime_type)
-    response['Content-Disposition'] = "attachment; filename=%s" % filename
-    return response
-
-def ContactView(request):
-
-	# POST
-	if request.method == 'POST':
-		contact_form = ContactForm(request.POST)
-	# POST and VALID data.
-		pdb.set_trace()
-		client = request.POST.get('field1')
-		email = request.POST.get('field2')
-		ph_no = request.POST.get('tel_no_1') + request.POST.get('tel_no_2')+request.POST.get('tel_no_3')
-		regards = request.POST.get('field4')
-		info = request.POST.get('field5')
-		
+def ClientView(request):	
 	return render(request,'create_user/client_regi.html')
-
+def Clientdetailspost(request):
+	if request.method == 'POST':
+		pdb.set_trace()
+		print(request.POST)
+		pass
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')
@@ -66,28 +48,3 @@ def payslip_generate_get(request):
 		file = Render.render_to_file('invoice.html', params)
         # return JsonResponse({"key": file,"employee_id":employee_id})
 		return JsonResponse({"key": file,"employee_id":employee_id})
-
-# class Pdf(View):
-
-#     def get(self, request):
-#         # sales = Sales.objects.all()
-#         # today = timezone.now()
-#         params = {
-#             'today': today,
-#             'sales': sales,
-#             'request': request
-#         }
-#         return Render.render('invoice.html', params)
-
-# class Pdf(View):
-
-#     def get(self, request):
-#         # sales = Sales.objects.all()
-#         today = timezone.now()
-#         params = {
-#             'today': today,
-#             'sales': sales,
-#             'request': request
-#         }
-#         file = Render.render_to_file('invoice.html', params)
-#         return JsonResponse({"key": file,"employee_id":employee_id})
