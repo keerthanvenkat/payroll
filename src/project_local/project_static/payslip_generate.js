@@ -17,7 +17,7 @@ $(document).on('submit', '#post-form',function(e){
         	var blob=new Blob([json["key"]]);
            var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
-        link.download=json["employee_id"]+".html";
+        link.download=json["key"][0];
          link.click();
             // document.getElementById("post-form").reset();
         },

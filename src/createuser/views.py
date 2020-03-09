@@ -5,7 +5,8 @@ from django.http import JsonResponse
 from .forms import ContactForm
 from .html import html_content
 import pdb
-
+from django.views.generic import View
+from .utils import *
 
 # Create your views here.
 
@@ -57,7 +58,36 @@ def payslip_generate(request):
 
 def payslip_generate_get(request):
 	if request.method == 'POST': 
-		client = request.POST.get('field1')
+		client = request.POST.get('client_name')
 		employee_id = request.POST.get('employee_id')
 		print(employee_id)
-	return JsonResponse({"key": html_content,"employee_id":employee_id})
+		# today = timezone.now()
+		params = {}
+		file = Render.render_to_file('invoice.html', params)
+        # return JsonResponse({"key": file,"employee_id":employee_id})
+		return JsonResponse({"key": file,"employee_id":employee_id})
+
+# class Pdf(View):
+
+#     def get(self, request):
+#         # sales = Sales.objects.all()
+#         # today = timezone.now()
+#         params = {
+#             'today': today,
+#             'sales': sales,
+#             'request': request
+#         }
+#         return Render.render('invoice.html', params)
+
+# class Pdf(View):
+
+#     def get(self, request):
+#         # sales = Sales.objects.all()
+#         today = timezone.now()
+#         params = {
+#             'today': today,
+#             'sales': sales,
+#             'request': request
+#         }
+#         file = Render.render_to_file('invoice.html', params)
+#         return JsonResponse({"key": file,"employee_id":employee_id})
