@@ -3,11 +3,14 @@ $(document).on('submit', '#client-reg',function(e){
     e.preventDefault();
     $.ajax({
         type:'POST',
-        url: 'clientdetails_post/',
+        url: '/createuser/clientdetails_post/',
         dataType: 'json',
         data:{
             client_name:$('.input-field')[0].value,
-            employee_id:$('.input-field')[1].value,
+            email:$('.input-field')[1].value,
+            telephone_no:$('.tel-number-field')[0].value + $('.tel-number-field')[1].value +$('.tel-number-field')[2].value ,
+            regards: $('.select-field').val(),
+            clinet_info: $('.textarea-field').val(),
             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
             action: 'post'
         },

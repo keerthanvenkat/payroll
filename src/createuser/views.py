@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.http import JsonResponse
-# from .models import Post
+from .models import ClientRegi
 from .forms import ContactForm
 from .html import html_content
 import pdb
@@ -17,7 +17,16 @@ def Clientdetailspost(request):
 	if request.method == 'POST':
 		pdb.set_trace()
 		print(request.POST)
-		pass
+		client = request.POST.get('client_name')
+		email = request.POST.get('email')
+		telephone_no =request.POST.get('telephone_no')
+		regards = request.POST.get('regards')
+		clinet_info = request.POST.get('clinet_info')
+		try:
+			ClientRegi.objects.create(client_name=client,email=email,Ph_no=telephone_no,regards=regards,text=clinet_info)
+			return JsonResponse({"data": "success"})
+		except:
+			pass
 
 def BlogView(request):
 	return render(request,'create_user/employee_regi.html')
