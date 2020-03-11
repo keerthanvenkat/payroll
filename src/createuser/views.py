@@ -6,7 +6,7 @@ from .forms import ContactForm
 from .html import html_content
 import pdb
 from django.views.generic import View
-from .utils import *
+from .utils import Zip_download,Render
 
 # Create your views here.
   
@@ -55,5 +55,9 @@ def payslip_generate_get(request):
 		# today = timezone.now()
 		params = {}
 		file = Render.render_to_file('invoice.html', params)
+		file1 = Render.render_to_file('invoice.html', params)
+		l = [file]
+		zip_file =  Zip_download.download_zip(l)
         # return JsonResponse({"key": file,"employee_id":employee_id})
-		return JsonResponse({"key": file,"employee_id":employee_id})
+		return JsonResponse({"key": zip_file,"employee_id":employee_id})
+

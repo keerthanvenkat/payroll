@@ -4,6 +4,9 @@ from django.template.loader import get_template
 import xhtml2pdf.pisa as pisa
 import os
 from random import randint
+import datetime
+import zipfile
+import io
 
 
 class Render:
@@ -31,3 +34,18 @@ class Render:
         with open(file_path, 'wb') as pdf:
             pisa.pisaDocument(BytesIO(html.encode("UTF-8")), pdf)
         return [file_name, file_path]
+class Zip_download:
+    """docstring for Zip_download"""
+    def download_zip(files):
+        zip_filename = 'Salary_data' + datetime.datetime.now().strftime('%Y%m%d%H%M') + '.zip'
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+            for file in files:
+                import pdb
+                pdb.set_trace()
+                zip_file.writestr(files[0][0])
+                # zip_file.writestr(files[1][0])
+        zip_buffer.seek(0)
+        resp = HttpResponse(zip_buffer, content_type='application/zip')
+        resp['Content-Disposition'] = 'attachment; filename = %s' % zip_filename
+        return resp
