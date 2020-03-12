@@ -1,6 +1,58 @@
+var clientname = $('.input-field')[0]
+var email=$('.input-field')[1]
+var te1= $('.tel-number-field')[0]
+var te2 = $('.tel-number-field')[1]
+var te3 = $('.tel-number-field')[2]
+function import_toast() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "20000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+    return toastr;
+}
 
+function displayMessage(message) {
+    if ($('.toast-error').css('display') == "block") {
+        $('.toast').remove();
+    }
+    var toastPan = import_toast();
+    Command: toastPan["error"](message)
+
+}
+function validate(){
+    if ($('.input-field')[0].value=="") {
+        displayMessage("Please add client Name");
+        $('.input-field')[0].focus();
+        return false;
+    }
+    if (email.value == "") {
+        displayMessage("Plaese Entere Email Id");
+        $('.input-field')[1].focus();
+        return false;
+    }
+
+    // if (te1 == "" or te2 =="" or  te3 = "") {
+    //     displayMessage("please enter contcat no");
+    //     $('.input-field')[1].focus();
+    //     return false;
+    // }
+}
 $(document).on('submit', '#client-reg',function(e){
     e.preventDefault();
+    validate()
     $.ajax({
         type:'POST',
         url: '/createuser/clientdetails_post/',
