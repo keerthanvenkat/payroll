@@ -7,6 +7,8 @@ from .html import html_content
 import pdb
 from django.views.generic import View
 from .utils import Zip_download,Render
+from django.core import serializers
+import json
 
 # Create your views here.
   
@@ -58,6 +60,11 @@ def payslip_generate_get(request):
 		file1 = Render.render_to_file('invoice.html', params)
 		l = [file]
 		zip_file =  Zip_download.download_zip(l)
-        # return JsonResponse({"key": file,"employee_id":employee_id})
-		return JsonResponse({"key": zip_file,"employee_id":employee_id})
+		# tmpJson = serializers.serialize("json",zip_file)
+		# tmpObj = json.loads(zip_file.decode("utf-8"))
+		# json.loads(data.decode("utf-8"))
+		# data = serializers.serialize('json', zip_file)
+		return JsonResponse({"key": file,"employee_id":employee_id})
+		return zip_file
+		# return HttpResponse(json.dumps(tmpObj), mimetype="application/json")
 

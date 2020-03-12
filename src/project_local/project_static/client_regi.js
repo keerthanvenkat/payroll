@@ -16,7 +16,7 @@ $(document).on('submit', '#client-reg',function(e){
         },
         success:function(json){
             console.log(json)
-            // document.getElementById("post-form").reset();
+            document.getElementById("client-reg").reset();
         },
         error : function(xhr,errmsg,err) {
         console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console

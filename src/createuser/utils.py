@@ -41,10 +41,7 @@ class Zip_download:
         zip_buffer = io.BytesIO()
         with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
             for file in files:
-                import pdb
-                pdb.set_trace()
-                zip_file.writestr(files[0][0])
-                # zip_file.writestr(files[1][0])
+                zip_file.writestr(zip_filename,files[0][0])
         zip_buffer.seek(0)
         resp = HttpResponse(zip_buffer, content_type='application/zip')
         resp['Content-Disposition'] = 'attachment; filename = %s' % zip_filename

@@ -11,13 +11,14 @@ $(document).on('submit', '#post-form',function(e){
             action: 'post'
         },
         success:function(json){
-        	console.log(json)
-
-        	var blob=new Blob([json["key"]]);
-           var link=document.createElement('a');
-          link.href=window.URL.createObjectURL(blob);
-        link.download=json["key"][0];
-         link.click();
+            console.log(json)
+            var blob=new Blob([json["key"]]);
+            var link=document.createElement('a');
+            link.href=window.URL.createObjectURL(blob);
+            link.download=json["key"][0];
+            link.click();
+            // link.remove();
+            // window.URL.revokeObjectURL(url);
             // document.getElementById("post-form").reset();
         },
         error : function(xhr,errmsg,err) {
