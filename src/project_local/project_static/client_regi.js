@@ -3,56 +3,27 @@ var email=$('.input-field')[1]
 var te1= $('.tel-number-field')[0]
 var te2 = $('.tel-number-field')[1]
 var te3 = $('.tel-number-field')[2]
-function import_toast() {
-    toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-center",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "20000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
-    return toastr;
-}
 
-function displayMessage(message) {
-    if ($('.toast-error').css('display') == "block") {
-        $('.toast').remove();
-    }
-    var toastPan = import_toast();
-    Command: toastPan["error"](message)
-
-}
 function validate(){
-    if ($('.input-field')[0].value=="") {
-        displayMessage("Please add client Name");
-        $('.input-field')[0].focus();
-        return false;
+    if($('.input-field')[0].value == ''){
+    show_error_toast(pause_on_hover = true,'Please add Client Name')
+    return false;
+    }else if($('.input-field')[1].value == ''){
+    show_error_toast(pause_on_hover = true,'Please Enter Email')
+    return false;
+    }else if($('.tel-number-field')[0].value  == ''){
+    show_error_toast(pause_on_hover = true,'Please Enter Telephone No')
+    return false;
+    }else{
+    return true
     }
-    if (email.value == "") {
-        displayMessage("Plaese Entere Email Id");
-        $('.input-field')[1].focus();
-        return false;
-    }
-
-    // if (te1 == "" or te2 =="" or  te3 = "") {
-    //     displayMessage("please enter contcat no");
-    //     $('.input-field')[1].focus();
-    //     return false;
-    // }
 }
+
 $(document).on('submit', '#client-reg',function(e){
     e.preventDefault();
-    validate()
+    if(validate() == false){
+    return false
+    }else{
     $.ajax({
         type:'POST',
         url: '/createuser/clientdetails_post/',
@@ -68,10 +39,11 @@ $(document).on('submit', '#client-reg',function(e){
         },
         success:function(json){
             console.log(json)
+            show_success_toast()
             document.getElementById("client-reg").reset();
         },
         error : function(xhr,errmsg,err) {
         console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
-    });
+    });}
 });

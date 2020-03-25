@@ -1,28 +1,24 @@
 <div class="fixed-header">
     <div class="navbar-header">
       <a class="navbar-brand" href="#" style="color: #1bff00;">LOGO</a>
-    </div>
-    <div class="container-fluid">
-        <nav class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">About</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Registration <span class="caret"></span></a>
-                    <ul class="dropdown-menu"style="background-color: orange;">
-                        <li><a href="{% url 'clientregistartion' %}">New Client Registration</a></li>
-                        <li><a href="{% url 'blog' %}">New Employee Registration</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Products</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Services<span class="caret"></span></a>
-                    <ul class="dropdown-menu" style="background-color: orange;">
-                        <li><a href="{% url 'payslip' %}">Payslip Generation</a></li>
-                        <li><a href="{% url 'blog' %}">Work Order Generation</a></li>
-                        <li><a href="{% url 'clientdetails' %}">Client Details</a></li>
-                        <li><a href="{% url 'employeedetails' %}">Employee Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Contact Us</a></li>
+        <nav class="" style="display: inline-flex; float: right">
+            <a class="active" href="#">About</a>
+            <li class="dropdown"style="list-style: none;"><a href=""class="dropdown-toggle" data-toggle="dropdown">Registration <span class="caret"></span></a>
+                <ul class="dropdown-menu"style="background-color: orange;">
+                    <a href="{% url 'clientregistartion' %}">New Client Registration</a>
+                    <a href="{% url 'blog' %}">New Employee Registration</a>
+                </ul>
+            </li>
+            <a href="#">Products</a>
+            <li class="dropdown" style="list-style: none;"><a href="" class="dropdown-toggle" data-toggle="dropdown">Services<span class="caret"></span></a>
+                <ul class="dropdown-menu" style="background-color: orange;">
+                    <a href="{% url 'payslip' %}">Payslip Generation</a>
+                    <a href="{% url 'blog' %}">Work Order Generation</a>
+                    <a href="{% url 'clientdetails' %}">Client Details</a>
+                    <a href="{% url 'employeedetails' %}">Employee Details</a>
+                </ul>
+            </li>
+            <a href="#">Contact Us</a>
         </nav>
     </div>
 </div>
-

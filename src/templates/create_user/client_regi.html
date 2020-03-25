@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
-{% block title %}{% endblock %}
+{% block title %}ClientRegistration{% endblock %}
 {% load static %} 
-{% block content %} 
-<link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
-<link href="{% css/toastr/toastr.min.css %}" rel="stylesheet" type="text/css" />
+{% block content %}
+
 <script src="{% static 'project_static/client_regi.js' %}"></script>
+
 <div class="form container-fluid">
 	<div class="form-heading">Provide your client information</div>
 	<form role='form'class="uniForm table-body-new" id= "client-reg" align="center">

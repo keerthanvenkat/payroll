@@ -1,16 +1,24 @@
 {% load static %}  
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
-    <link href="{% static 'css/core.css' %}" rel="stylesheet" text="text/css">
-    <!-- <link href="{% static 'css/table.css' %}" rel="stylesheet" text="text/css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-   
+<!--    <link href="{% static 'css/table.css' %}" rel="stylesheet" text="text/css">-->
+
+<!--cdn files-->
+<script src="{% static 'cdn_files/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'cdn_files/popper.min.js' %}"></script>
+<script src="{% static 'cdn_files/bootstrap.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'cdn_files/bootstrap.min.css' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/componet.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}" />
+<!-- toster related-->
+<link rel="stylesheet" type="text/css" href="{% static 'toasts-manager/dist/toast.min.css ' %}" >
+<script src="{% static 'toasts-manager/dist/toast.min.js' %}"></script>
+<script src="{% static 'toasts-manager/js/toaster_custom.js' %}"></script>
   
